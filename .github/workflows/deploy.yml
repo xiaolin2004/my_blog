@@ -36,6 +36,6 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages  # 部署的目标分支，通常使用 gh-pages
-          folder: .vuepress/dist  # VuePress 默认的构建输出文件夹
+          folder: docs/.vuepress/dist  # VuePress 默认的构建输出文件夹
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}  # 自动生成的 GitHub Token 用于推送代码
