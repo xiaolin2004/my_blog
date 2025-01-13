@@ -203,13 +203,13 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     // 扩展自动生成frontmatter。（当md文件的frontmatter不存在相应的字段时将自动添加。不会覆盖已有的数据。）
     extendFrontmatter: {
       author: {
-        name: "DonkeyKane", // 必需
+        name: "DonkeyKane",
         link: "https://github.com/xiaolin2004",
       },
     },
 
-    // 自定义hmtl(广告)模块
-    htmlModules,
+    // 自定义hmtl(广告)模块 取消下面的注释就可以定位到htmlModules.ts文件中配置的模块（后面可能有用）
+    // htmlModules,
   },
 
   // 注入到页面<head>中的标签，格式[tagName, { attrName: attrValue }, innerHTML?]
@@ -223,7 +223,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           "前端博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown",
       },
     ],
-    ["meta", { name: "baidu-site-verification", content: "7F55weZDDc" }], // 百度统计的站长验证（你可以去掉）
+    // ["meta", { name: "baidu-site-verification", content: "7F55weZDDc" }], // 百度统计的站长验证（你可以去掉）
     ["meta", { name: "theme-color", content: "#11a8cd" }], // 移动浏览器主题颜色
     // [
     //   'script',
