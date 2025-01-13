@@ -1,0 +1,41 @@
+name: Deploy VuePress to GitHub Pages
+
+# 定义触发条件：当推送到 main 分支时触发
+on:
+  push:
+    branches:
+      - main  # 你可以根据自己的分支调整
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # 选择操作系统
+
+    steps:
+      # Step 1: Checkout代码
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Step 2: 设置 Node.js 环境
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'  # 你可以根据自己的需要调整 Node.js 版本
+
+      # Step 3: 安装依赖
+      - name: Install dependencies
+        run: |
+          npm install
+
+      # Step 4: 构建 VuePress 网站
+      - name: Build VuePress site
+        run: |
+          npm run build
+
+      # Step 5: 部署到 GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages  # 部署的目标分支，通常使用 gh-pages
+          folder: docs/.vuepress/dist  # VuePress 默认的构建输出文件夹
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}  # 自动生成的 GitHub Token 用于推送代码
